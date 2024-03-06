@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex Matcher</title>
+    
+</head>
+<body>
+    <h1>Regex Matcher</h1>
+    <form action="/results" method="post">
+        <label for="test_string">Test String:</label>
+        <input type="text" id="test_string" name="test_string" required style="width: 300px;">
+        <br>
+        <br>
+        <label for="regex_pattern">Regex Pattern:</label>
+        <input type="text" id="regex_pattern" name="regex_pattern" required style="width: 300px;">
+        <br>
+        <br>
+        <button type="submit">Match</button>
+    </form>
+    
+    
+    {% if test_string and regex_pattern %}
+        <h2>Results:</h2>
+        <p>Test String: {{ test_string }}</p>
+        <p>Regex Pattern: {{ regex_pattern }}</p>
+        <p>Matches:</p>
+        <ul>
+            {% for match in matches %}
+                <li>{{ match }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
